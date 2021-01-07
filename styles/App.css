@@ -1,3 +1,7 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background: blue url(../static/assets/ui/QuizBackground.png) no-repeat center /
+    cover;
 }
