@@ -1,7 +1,7 @@
 {
   "name": "@coderscamp2020/project-javascript-typescript-starwarsquiz",
   "version": "1.0.0",
-  "description": "",
+  "description": "**UWAGA! Zaczynając pracę nad projektem — nie róbcie forka.\r Jedna osoba z zespołu (np. Mentor) powinna użyć przycisku `Use this template` i dodać innych członków zespołu jako Collaborators do tego repozytorium.**",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf .cache && rimraf coverage && rimraf dist && rimraf node_modules",
@@ -65,5 +65,8 @@
         "staticOutDir": "static"
       }
     ]
+  },
+  "directories": {
+    "test": "test"
   }
 }
