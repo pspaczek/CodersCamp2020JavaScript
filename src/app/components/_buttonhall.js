@@ -2,7 +2,7 @@ class ButtonHall {
   constructor() {
     this.text = "Hall of fame";
   }
-  render() {
+  renderButtonHall() {
     const hallText = this.text.toUpperCase();
     const hallButton = `<button class="buttonHall">
                 <i class="buttonHall__icon">iconhere</i>
