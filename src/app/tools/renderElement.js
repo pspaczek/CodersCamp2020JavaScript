@@ -2,7 +2,7 @@ const possibleHTMLTags = ["a", "abbr", "acronym", "address", "applet", "area", "
 
 const quizMainNode = document.getElementById('swquiz-app');
 
-const renderAndAppendElement = (tagHTML, className, innerText = '', parentElement = quizMainNode, ) => {
+const renderElement = (tagHTML, className, innerText = '', parentElement = quizMainNode, ) => {
   let element;
   if (possibleHTMLTags.includes(tagHTML)) {
     element = document.createElement(tagHTML);
@@ -11,7 +11,7 @@ const renderAndAppendElement = (tagHTML, className, innerText = '', parentElemen
   }
 
   if (typeof className === 'string') {
-    element.classList.add(className)
+    element.className = className
   } else {
     throw Error('Nazwa klasy musi być stringiem')
   }
@@ -19,4 +19,4 @@ const renderAndAppendElement = (tagHTML, className, innerText = '', parentElemen
   return parentElement.appendChild(element)
 }
 
-export default renderAndAppendElement
+export default renderElement

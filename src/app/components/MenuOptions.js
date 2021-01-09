@@ -1,19 +1,39 @@
-import renderAndAppendElement from '../tools/render'
+import renderElement from '../tools/renderElement'
 
 class MenuOptions {
   constructor() {
     this.options = ['People', 'Vehicles', 'Starships']
   }
-  renderMenuOptions() {
-    const div = renderAndAppendElement('section', 'options', '')
+  render() {
+    const section = renderElement('section', 'options', '')
     this.options.forEach(option => {
-      renderAndAppendElement('h2', 'options__mode', option, div)
+      const optionNode = renderElement('h2', 'options__mode', option, section)
+      optionNode.dataset.mode = option.toLocaleLowerCase()
     })
+    return section
   }
  
-  showActiveMode() {
-    
+  showActiveMode(e, callback) {
+    if (e.target.classList.contains('options__mode')) {
+      const allOptions = document.querySelectorAll('.options__mode');
+      allOptions.forEach(option => option.classList.remove('options__mode--active'))
+      const activeMode = e.target
+      activeMode.classList.add('options__mode--active')
+      callback(activeMode)
+    }
+  }
+
+  changeMode(activeMode) {
+    if (activeMode.dataset.mode === 'people') {
+      console.log('Tryb people')
+    } else if (activeMode.dataset.mode === 'vehicles') {
+      console.log('Tryb vehicles')
+    } else {
+      console.log('Tryb starships')
+    }
   }
 }
 
-export default MenuOptions
+const menuOptionsObj = new MenuOptions()
+
+export default menuOptionsObj

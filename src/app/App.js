@@ -1,9 +1,8 @@
-import renderAndAppendElement from './tools/render.js'
-import MenuOptions from './components/MenuOptions'
+import game from './Game'
+
 
 export const App = ({options}) => {
-  new MenuOptions().renderMenuOptions()
-
+  game.start()
 }
 
 
