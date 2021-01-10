@@ -7,7 +7,7 @@ class MenuOptions {
   render() {
     const optionsSection = renderElement('section', 'options')
     this.options.forEach((option, id) => {
-      const optionElement = renderElement('h2', 'options__mode', option, optionsSection)
+      const optionElement = renderElement('span', 'options__mode', option, optionsSection)
       optionElement.dataset.mode = option.toLowerCase()
       if (id === 0) {
         optionElement.classList.add('options__mode--active')
