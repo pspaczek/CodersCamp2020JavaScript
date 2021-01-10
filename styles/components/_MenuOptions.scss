@@ -12,7 +12,7 @@
     font-weight: 600;
     cursor: pointer;
     &--active {
-      ::after {
+      &::after {
         content: '';
         display: block;
         height: 10px;
