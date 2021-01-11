@@ -5,6 +5,8 @@ class RedButton {
         this.text = text;
     }
     render() {
+//const buttonBlock generuje <button class="buttonRed"></button>
+
         const buttonBlock = renderElement({
             tagHTML: 'button',
             className: 'buttonRed',
@@ -13,14 +15,21 @@ class RedButton {
             }
         })
 
+//teraz chcę dodac wewnątrz <span>${this.text}</span>
+
         const contentText = document.createElement("span");
         contentText.innerText = this.text;
 
-        const button =
-            buttonBlock.appendChild(contentText);
+//tutaj chce dołączyć element wewnatrz <button></button>
+
+        const button = buttonBlock.appendChild(contentText);
+
+//dodaje klasę do nowego elementu:
         button.classList.add("buttonRed__text");
-       return "Button added"
+
+//wyrzucam gotowy button
+       return buttonBlock
     }
 };
 
-export default RedButton
+export default RedButton 
