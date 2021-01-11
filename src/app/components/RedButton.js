@@ -15,12 +15,12 @@ class RedButton {
             }
         })
 
-//teraz chcę dodac wewnątrz <span>${this.text}</span>
+//teraz chcę stworzyć <span>${this.text}</span>
 
         const contentText = document.createElement("span");
         contentText.innerText = this.text;
 
-//tutaj chce dołączyć element wewnatrz <button></button>
+//tutaj chce dołączyć powyższy element wewnatrz <button></button>
 
         const button = buttonBlock.appendChild(contentText);
 
