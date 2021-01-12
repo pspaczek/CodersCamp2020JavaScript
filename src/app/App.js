@@ -4,7 +4,7 @@ import UsersRanking from './components/UsersRanking';
 
 export const App = ({ options }) => {
   new MenuOptions().render();
-  new GameModeName().renderMode();
+  new GameModeName();
   new UsersRanking().render([
     { name: 'dad', score: '10/20' },
     { name: 'dad', score: '10/20' },
