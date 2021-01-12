@@ -1,0 +1,17 @@
+.timer {
+  // position: relative;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 65px 86px 23px 72px;
+  &__lightsaberHandle {
+    max-width: 30%;
+  }
+  &__lightsaberProgressBar {
+    // position: absolute;
+    // left: 280px;
+    // right: 86px;
+    margin-left: -20px;
+    max-width: 90%;
+  }
+}
