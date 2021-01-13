@@ -8,9 +8,7 @@ class GameModeName {
   };
   constructor() {
     this.descriptionMode = this.description.people;
-    this.options = document.querySelector('.options');
-    this.options.id = 'options';
-    this.activeMode = document.getElementById('options');
+    this.activeMode = document.querySelector('.options');
     this.activeMode.addEventListener('click', this.changeActiveMode.bind(this));
     this.renderMode();
   }
