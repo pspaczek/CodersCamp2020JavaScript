@@ -9,17 +9,22 @@ class LightsaberTimer {
       className: 'timer',
     })
 
-    const LightsaberHandle = document.createElement('img');
-    LightsaberHandle.src = '../../../static/assets/ui/LightsaberHandle.png';
-    LightsaberHandle.classList.add('timer__lightsaberHandle');
-    LightsaberHandle.alt = 'lightsaber';
-    lightsaberTimer.appendChild(LightsaberHandle);
+    const lightsaberHandle = document.createElement('img');
+    lightsaberHandle.src = '../../../static/assets/ui/LightsaberHandle.png';
+    lightsaberHandle.classList.add('timer__lightsaberHandle');
+    lightsaberHandle.alt = 'lightsaber';
+    lightsaberTimer.appendChild(lightsaberHandle);
 
-    const LightsaberProgressBar = document.createElement('img');
-    LightsaberProgressBar.src = '../../../static/assets/ui/ProgressBar.png';
-    LightsaberProgressBar.classList.add('timer__lightsaberProgressBar');
-    LightsaberProgressBar.alt = 'progressbar';
-    lightsaberTimer.appendChild(LightsaberProgressBar);
+    const lightsaberProgressBar = document.createElement('img');
+    lightsaberProgressBar.src = '../../../static/assets/ui/ProgressBar.png';
+    lightsaberProgressBar.classList.add('timer__lightsaberProgressBar');
+    lightsaberProgressBar.alt = 'progressbar';
+    lightsaberTimer.appendChild(lightsaberProgressBar);
+
+    const saber = document.createElement('img');
+    lightsaberProgressBar.classList.add('timer__saberProgressBar');
+    lightsaberProgressBar.alt = 'saber-progressbar';
+    lightsaberTimer.appendChild(saber);
   }
 
   

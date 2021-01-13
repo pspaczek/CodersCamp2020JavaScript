@@ -12,6 +12,14 @@
     // left: 280px;
     // right: 86px;
     margin-left: -20px;
-    max-width: 90%;
+    max-width: 100%;
+  }
+  &__saberProgressBar {
+    margin-left: -20px;
+    max-width: 100%;
+    background: #ffffff;
+    box-shadow: 10px -5px 15px $red, 10px 5px 15px $red,
+      inset 0px 5px 4px rgba(255, 0, 0, 0.25);
+    border-radius: 8px;
   }
 }
