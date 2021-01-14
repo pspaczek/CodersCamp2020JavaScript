@@ -1,5 +1,6 @@
 @import './reset';
 @import './components/MenuOptions';
+@import './components/GameModeName';
 @import './components/UsersRanking';
 
 body {
@@ -7,4 +8,14 @@ body {
   background: url(../static/assets/ui/QuizBackground.png) no-repeat center /
     cover;
   height: 100vh;
+  width: 100%;
+}
+
+#swquiz-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 80%;
 }
