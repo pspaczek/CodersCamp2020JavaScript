@@ -15,20 +15,33 @@ class LightsaberTimer {
     lightsaberHandle.alt = 'lightsaber';
     lightsaberTimer.appendChild(lightsaberHandle);
 
-    const lightsaberProgressBar = document.createElement('img');
-    lightsaberProgressBar.src = '../../../static/assets/ui/ProgressBar.png';
+    const lightsaberProgressBar = document.createElement('div');
     lightsaberProgressBar.classList.add('timer__lightsaberProgressBar');
-    lightsaberProgressBar.alt = 'progressbar';
     lightsaberTimer.appendChild(lightsaberProgressBar);
 
-    const saber = document.createElement('img');
-    lightsaberProgressBar.classList.add('timer__saberProgressBar');
-    lightsaberProgressBar.alt = 'saber-progressbar';
+    const saber = document.createElement('div');
+    saber.classList.add('timer__saber');
     lightsaberTimer.appendChild(saber);
   }
 
-  
+  initTimer() {
+    const saber = document.querySelector('.timer__saber');
+    const saberInitialWidth = saber.offsetWidth;
+    saber.style.width = saberInitialWidth + 'px';
 
+    const totalTime = 120;
+    let timeleft = totalTime;
+    if (timeleft > 0) {
+      const interval = setInterval(() => {   
+        timeleft--;
+        saber.style.width = Math.round(timeleft * saberInitialWidth / totalTime) + 'px';
+
+        if (timeleft <= 0) {
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+  }
 }
 
 export default LightsaberTimer;
