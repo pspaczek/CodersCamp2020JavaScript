@@ -6,37 +6,38 @@ const possibleEvents = []
 const quizMainNode = document.getElementById('swquiz-app');
 
 const renderElement = ({tagHTML, className, innerText = '', parentElement = quizMainNode, attr, on}) => {
+
   let element;
   if (possibleHTMLTags.includes(tagHTML)) {
     element = document.createElement(tagHTML);
   } else {
-    throw Error('Podaj właściwy tag HTML')
+    throw Error('Podaj właściwy tag HTML');
   }
 
   if (typeof className === 'string') {
-    element.className = className
+    element.className = className;
   } else {
-    throw Error('Nazwa klasy musi być stringiem')
+    throw Error('Nazwa klasy musi być stringiem');
   }
 
   //if you are using attribute with more words eg. data-mode, it has to be written as string
   if (attr) {
     Object.keys(attr).forEach((key, id) => {
-      element.setAttribute(`${key}`, `${Object.values(attr)[id]}`) 
-    })
+      element.setAttribute(`${key}`, `${Object.values(attr)[id]}`);
+    });
   }
-  
+
   if (on) {
     Object.keys(on).forEach((eventName, id) => {
-      element.addEventListener(String(eventName), Object.values(on)[id])
-    })
+      element.addEventListener(String(eventName), Object.values(on)[id]);
+    });
   }
 
   if (innerText) {
     const text = document.createTextNode(innerText);
-    element.appendChild(text)
+    element.appendChild(text);
   }
-  return parentElement.appendChild(element)
-}
+  return parentElement.appendChild(element);
+};
 
-export default renderElement
+export default renderElement;
