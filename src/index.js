@@ -9,10 +9,10 @@ window.onload = () => App({options: {swApiBaseUrl: SW_API_BASE_URL, quizMaxTime:
 
 
 // Logo - reload page
-let p = document.querySelector('.logo'); 
+let logo = document.querySelector('.logo'); 
 const refreshPage = () => {
   location.reload();
 };
-p.addEventListener("click", refreshPage);
+logo.addEventListener("click", refreshPage);
 
 
