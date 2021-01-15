@@ -1,0 +1,31 @@
+.timer {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 65px 86px 23px 72px;
+  &__lightsaberHandle {
+    width: 299px;
+  }
+  &__lightsaberProgressBar {
+    position: absolute;
+    margin-left: 280px;
+    width: 1480px;
+    max-width: 100%;
+    height: 26px;
+    background: #bcbcbc;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+  }
+  &__saber {
+    position: absolute;
+    width: 1480px;
+    max-width: 100%;
+    height: 26px;
+    margin-left: 280px;
+    background: #ffffff;
+    box-shadow: 10px -5px 15px $red, 10px 5px 15px $red,
+      inset 0px 5px 4px rgba(255, 0, 0, 0.25);
+    border-radius: 8px;
+    transition: all linear 1s;
+  }
+}
