@@ -9,19 +9,26 @@ class LightsaberTimer {
       className: 'timer',
     })
 
-    const lightsaberHandle = document.createElement('img');
-    lightsaberHandle.src = '../../../static/assets/ui/LightsaberHandle.png';
-    lightsaberHandle.classList.add('timer__lightsaberHandle');
-    lightsaberHandle.alt = 'lightsaber';
-    lightsaberTimer.appendChild(lightsaberHandle);
+    const lightsaberHandle = renderElement({
+      tagHTML: 'img',
+      className: 'timer__lightsaberHandle',
+      parentElement: lightsaberTimer,
+      attr: {'src' : '../../../static/assets/ui/LightsaberHandle.png'}
+    })
 
-    const lightsaberProgressBar = document.createElement('div');
-    lightsaberProgressBar.classList.add('timer__lightsaberProgressBar');
-    lightsaberTimer.appendChild(lightsaberProgressBar);
+    const lightsaberProgressBar = renderElement({
+      tagHTML: 'div',
+      className: 'timer__lightsaberProgressBar',
+      parentElement: lightsaberTimer,
+    })
 
-    const saber = document.createElement('div');
-    saber.classList.add('timer__saber');
-    lightsaberTimer.appendChild(saber);
+    const saber = renderElement({
+      tagHTML: 'div',
+      className: 'timer__saber',
+      parentElement: lightsaberTimer,
+    })
+
+    return lightsaberTimer;
   }
 
   initTimer() {
