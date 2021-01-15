@@ -9,9 +9,11 @@ class TextTimer {
       className: 'text-timer',
     });
 
-    const timer = document.createElement('span');
-    timer.classList.add('text-timer__timeleft');
-    textTimer.append(timer);
+    const timer = renderElement({
+      tagHTML: 'span',
+      className: 'text-timer__timeleft',
+      parentElement: textTimer,
+    })
   }
 
   initTimer() {
