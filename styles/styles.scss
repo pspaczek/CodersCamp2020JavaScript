@@ -1,6 +1,7 @@
 @import './reset';
 @import './variables';
 @import './components/MenuOptions';
+@import './components/GameModeName';
 @import './components/UsersRanking';
 @import './components/LightsaberTimer';
 
@@ -9,4 +10,14 @@ body {
   background: url(../static/assets/ui/QuizBackground.png) no-repeat center /
     cover;
   height: 100vh;
+  width: 100%;
+}
+
+#swquiz-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 80%;
 }
