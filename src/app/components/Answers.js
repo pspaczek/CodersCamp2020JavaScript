@@ -8,8 +8,8 @@ class Answers {
   }
 async render(answersPromise) {
   const answersObject = await answersPromise
-  const {answers, rightAnswer, mode} = answersObject
-  console.log(answers, rightAnswer, mode)
+  const {answers, rightAnswer} = answersObject
+  console.log(answers, rightAnswer)
   const section = renderElement({
     tagHTML: 'section',
     className: 'answers',
@@ -20,12 +20,13 @@ async render(answersPromise) {
       className: 'answers__answer',
       parentElement: section,
       innerText: answer,
-      on: {click: (e) => this.checkIfCorrect(e, rightAnswer, mode)}
+      on: {click: (e) => this.checkIfCorrect(e, rightAnswer)}
       })
     })
   }
 
-  checkIfCorrect(e, rightAnswer, mode) {
+  checkIfCorrect(e, rightAnswer) {
+    const mode = document.querySelector('.options__mode--active').dataset.mode;
     if (e.target.innerText === rightAnswer) {
       e.target.classList.add('answers__answer--correct')
       this.correct++
