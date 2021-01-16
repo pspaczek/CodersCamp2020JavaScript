@@ -10,7 +10,7 @@ class GameModeName {
     this.descriptionMode = this.description.people;
     this.activeMode = document.querySelector('.options');
     this.activeMode.addEventListener('click', this.changeActiveMode.bind(this));
-    this.renderMode();
+    this.render();
   }
   changeActiveMode() {
     let activeModeData = document
@@ -31,7 +31,7 @@ class GameModeName {
       '.mode-container__header',
     ).innerText = `MODE: ${this.descriptionMode}`;
   }
-  renderMode() {
+  render() {
     const gameMode = renderElement({
       tagHTML: 'header',
       className: 'mode-container',
