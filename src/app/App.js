@@ -15,3 +15,4 @@ export const App = ({ options }) => {
   ]);
   new Button().render();
 };
+
