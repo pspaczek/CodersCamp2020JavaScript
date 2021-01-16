@@ -3,8 +3,8 @@ import QuestionGenerator from './QuestionGenerator';
 
 class Answers {
   constructor() {
-    this.correct = 0
-    this.incorrect = 0
+    this.humanAnswers = {correct: 0, incorrect: 0}
+    this.computerAnswers = {correct: 0, incorrect: 0}
   }
 async render(answersPromise) {
   const answersObject = await answersPromise
@@ -20,25 +20,36 @@ async render(answersPromise) {
       className: 'answers__answer',
       parentElement: section,
       innerText: answer,
-      on: {click: (e) => this.checkIfCorrect(e, rightAnswer)}
+      on: {click: (e) => this.checkIfCorrect(e, rightAnswer, answers)}
       })
     })
   }
 
-  checkIfCorrect(e, rightAnswer) {
+  async checkIfCorrect(e, rightAnswer, answersArray) {
     const mode = document.querySelector('.options__mode--active').dataset.mode;
     if (e.target.innerText === rightAnswer) {
       e.target.classList.add('answers__answer--correct')
-      this.correct++
+      this.humanAnswers.correct++
     } else {
       e.target.classList.add('answers__answer--incorrect')
-      this.incorrect++
+      this.humanAnswers.incorrect++
     }
-    const answers = new QuestionGenerator().returnAnswersObject(mode)
+    const answers = await new QuestionGenerator().returnAnswersObject(mode)
+    this.computerChoose(rightAnswer, answersArray)
     setTimeout(() => {
       e.target.parentNode.remove()
       this.render(answers)
     }, 1000)
+    console.dir(this.computerAnswers, this.humanAnswers)
+  }
+
+  computerChoose(rightAnswer, answers) {
+    const random = Math.floor(Math.random() * answers.length)
+    if (answers[random] === rightAnswer) {
+      this.computerAnswers.correct++
+    } else {
+      this.computerAnswers.incorrect++
+    }
   }
 }
 
