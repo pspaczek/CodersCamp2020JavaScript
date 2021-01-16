@@ -1,8 +1,10 @@
 @import './reset';
+@import './variables';
 @import './components/MenuOptions';
 @import './components/GameModeName';
 @import './components/UsersRanking';
 @import './components/ModeRules';
+@import './components/LightsaberTimer';
 
 body {
   font-family: 'Montserrat', sans-serif;

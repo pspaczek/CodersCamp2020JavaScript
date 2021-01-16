@@ -7,10 +7,10 @@ class GameModeName {
     starships: 'Do you recognize this starship?',
   };
   constructor() {
-    this.descriptionMode = this.description.people;
+    this.modeHeader = this.description.people;
     this.activeMode = document.querySelector('.options');
     this.activeMode.addEventListener('click', this.changeActiveMode.bind(this));
-    this.renderMode();
+    this.render();
   }
   changeActiveMode() {
     let activeModeData = document
@@ -18,28 +18,28 @@ class GameModeName {
       .getAttributeNode('data-mode').textContent;
     switch (activeModeData) {
       case 'people':
-        this.descriptionMode = this.description.people;
+        this.modeHeader = this.description.people;
         break;
       case 'vehicles':
-        this.descriptionMode = this.description.vehicles;
+        this.modeHeader = this.description.vehicles;
         break;
       default:
-        this.descriptionMode = this.description.starships;
+        this.modeHeader = this.description.starships;
         break;
     }
     document.querySelector(
-      '.mode-container__header',
-    ).innerText = `MODE: ${this.descriptionMode}`;
+      '.mode__header',
+    ).innerText = `MODE: ${this.modeHeader}`;
   }
-  renderMode() {
+  render() {
     const gameMode = renderElement({
-      tagHTML: 'header',
-      className: 'mode-container',
+      tagHTML: 'section',
+      className: 'mode',
     });
     renderElement({
       tagHTML: 'h1',
-      className: 'mode-container__header',
-      innerText: `MODE: ${this.descriptionMode}`,
+      className: 'mode__header',
+      innerText: `MODE: ${this.modeHeader}`,
       parentElement: gameMode,
     });
   }
