@@ -29,47 +29,61 @@ class QuestionGenerator {
     return randomNumber
   }
 
-  getFourRandomQuestionIds(mode) {
+  getFourRandomAnswerIds(mode) {
     const possibleIds = this.getPossibleModeIds(mode)
     const maxRange = possibleIds.length
 
-    let randomIds = []
-    let randomQuestionIds = []
-    let lastId
+    let randomIndexes = []
+    let randomAnswerIds = []
+    let lastIndex
 
-    while (randomIds.length <= 3) {
-      const randomId = this.getRandomNumber(maxRange)
-      lastId = randomId
-      if (!randomIds.includes(lastId)) {
-        randomIds.push(randomId)
+    while (randomIndexes.length <= 3) {
+      const randomIndex = this.getRandomNumber(maxRange)
+      lastIndex = randomIndex
+      if (!randomIndexes.includes(lastIndex)) {
+        randomIndexes.push(randomIndex)
       }
     }
-    randomIds.forEach(id => randomQuestionIds.push(possibleIds[id]))
-    return randomQuestionIds
+    randomIndexes.forEach(randomIndex => randomAnswerIds.push(possibleIds[randomIndex]))
+    return randomAnswerIds
   }
 
-  getQuestionId(mode) {
-    const fourQuestionRandomIds = this.getFourRandomQuestionIds(mode)
-    const randomId = Math.floor(Math.random() * fourQuestionRandomIds.length)
-    const questionId = fourQuestionRandomIds[randomId]
-    return questionId
+  async fetchAnswer(mode, answerId) {
+    const url = `https://swapi.dev/api/${mode}/${answerId}`
+    const response = await fetch(url)
+    const SWObject = await response.json()
+    return SWObject.name
   }
 
-  fetchQuestion(mode) {
-    const questionId = this.getQuestionId(mode)
-    const url = `https://swapi.dev/api/${mode}/${questionId}`
-    
-    fetch(url)
-      .then(res => {
-        if (res.status === 200) {
-         return res.json() 
-        } else {
-          throw Error('Nie ma takiego zasobu do pobrania')
-        }
-      })
-      .then(data => {
-        console.log(data)
-        return data})
+  async fetchFourAnswers(mode, answersArray) {
+    const randomAnswersIds = answersArray
+    const answers = []
+    randomAnswersIds.forEach((answerId) => {
+      const answer = this.fetchAnswer(mode, answerId)
+      answers.push(answer)
+    })
+    return Promise.all(answers)
+      .then(answers => {return answers})
+  }
+
+  getCorrectAnswer(mode) {
+    const randomAnswerIds = this.getFourRandomAnswerIds(mode)
+    const randomIndex = Math.floor(Math.random() * randomAnswerIds.length)
+    const correctAnswerId = randomAnswerIds[randomIndex]
+    return {correctAnswerId, correctAnswerIndex : randomIndex, randomAnswerIds}
+  }
+  
+  async returnAnswersObject(mode) {
+    const answers = this.getCorrectAnswer(mode)
+    const fetchedAnswers = await this.fetchFourAnswers(mode, answers.randomAnswerIds)
+    const answersObject = {
+      "image": `../../../static/assets/img/modes/${mode}/${answers.correctAnswerId}`,
+      "answers": fetchedAnswers,
+      "rightAnswer": fetchedAnswers[answers.correctAnswerIndex],
+      rightAnswerId: answers.correctAnswerId
+    }
+    console.log(answersObject)
+    return answersObject
   }
 }
 
