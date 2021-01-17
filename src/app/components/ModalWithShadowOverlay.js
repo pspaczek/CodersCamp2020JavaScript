@@ -1,6 +1,10 @@
 import renderElement from '../tools/renderElement';
+//object has 2 parameters to be taken, both should be other components
 class ModalWithShadowOverlay {
-  render(modalContent = 'hello') {
+  constructor(modalContent) {
+    this.modalContent = modalContent;
+  }
+  render() {
     const modalOverlay = renderElement({
       tagHTML: 'div',
       className: 'overlay',
@@ -16,11 +20,12 @@ class ModalWithShadowOverlay {
         className: 'modal__content',
         parentElement: modal,
       });
-      insideModal.innerHTML = modalContent;
-    } else {
-      modalOverlay.remove();
-      modal.remove();
     }
+    insideModal.appendChild(modalContent.content);
+  }
+  closeModal() {
+    modalOverlay.style.display = 'none';
+    modal.style.display = 'none';
   }
 }
 
