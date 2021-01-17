@@ -6,8 +6,9 @@ class PeopleImg {
   }
   async render(answersPromise) {
     const answersObject = await answersPromise
-    const src = answersObject.image 
-    this.activePath = src
+    const id = answersObject.rightAnswerId
+    const mode = document.querySelector('.options__mode--active').dataset.mode; 
+    this.activePath = `/static/assets/img/modes/${mode}/${id}.jpg`
     const imageCard = renderElement({
       tagHTML: 'div',
       className: 'mode__image',
