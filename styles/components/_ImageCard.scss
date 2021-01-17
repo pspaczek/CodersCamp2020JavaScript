@@ -1,5 +1,6 @@
 .mode {
   &__image {
+    grid-area: image;
     width: 20em;
     height: 25em;
     background-size: cover;

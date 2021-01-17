@@ -1,5 +1,6 @@
 @import './reset';
 @import './variables';
+@import './button';
 @import './components/MenuOptions';
 @import './components/GameModeName';
 @import './components/UsersRanking';
@@ -7,8 +8,8 @@
 @import './components/ImageCard';
 @import './components/logo';
 @import './components/ModeRules';
+@import './components/Buttons';
 @import './components/LightsaberTimer';
-
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -18,7 +19,20 @@ body {
   width: 100%;
 }
 
+.app {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+    'logo content'
+    'image content'
+    'image content';
+  // 'image content';
+  justify-content: center;
+  justify-items: center;
+}
+
 #swquiz-app {
+  grid-area: content;
   display: flex;
   flex-direction: column;
   align-items: center;
