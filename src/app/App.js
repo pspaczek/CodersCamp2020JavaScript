@@ -1,10 +1,12 @@
 import MenuOptions from './components/MenuOptions';
 import GameModeName from './components/GameModeName';
 import UsersRanking from './components/UsersRanking';
+import QuestionGenerator from './components/QuestionGenerator';
 import ModeRules from './components/ModeRules';
 import Button from './components/Button'; 
 
-export const App = ({ options }) => {
+export const App = ({options}) => {
+  new QuestionGenerator().returnAnswersObject('people')
   new MenuOptions().render();
   new GameModeName();
   new ModeRules().renderRules();
@@ -15,4 +17,3 @@ export const App = ({ options }) => {
   ]);
   new Button().render();
 };
-
