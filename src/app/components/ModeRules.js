@@ -55,7 +55,7 @@ class ModeRules {
     renderElement({
       tagHTML: 'h2',
       className: 'mode__title--text',
-      innerText: 'MODE RULES',
+      innerText: 'Mode Rules',
       parentElement: title,
     });
     renderElement({

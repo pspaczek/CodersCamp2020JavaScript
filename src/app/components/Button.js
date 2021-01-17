@@ -7,10 +7,13 @@ class Button {
   };
 
   render() {
+    const buttons = document.querySelector('.buttons')
+
     const button = renderElement({
       tagHTML: "button",
       className: `${this.className}`,
-      innerText: `${this.text}`
+      innerText: `${this.text}`,
+      parentElement: buttons,
     });
 
     return button;
