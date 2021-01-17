@@ -2,15 +2,17 @@ import renderElement from '../tools/renderElement';
 
 class PeopleImg {
   constructor() {
-    this.activePath = '/static/assets/img/modes/people/36.jpg';
+    this.activePath = '';
   }
-  render() {
+  async render(answersPromise) {
+    const answersObject = await answersPromise
+    const src = answersObject.image 
+    this.activePath = src
     const imageCard = renderElement({
       tagHTML: 'div',
       className: 'mode__image',
     });
-    console.log(imageCard);
-    imageCard.style.backgroundImage = `url(${this.activePath})`;
+    imageCard.style.backgroundImage = `url(${this.activePath})`
   }
 }
 

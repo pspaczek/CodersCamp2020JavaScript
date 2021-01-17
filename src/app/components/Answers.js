@@ -1,5 +1,6 @@
 import renderElement from '../tools/renderElement'
 import QuestionGenerator from './QuestionGenerator';
+import PeopleImg from './PeopleImg'
 
 class Answers {
   constructor() {
@@ -9,7 +10,6 @@ class Answers {
 async render(answersPromise) {
   const answersObject = await answersPromise
   const {answers, rightAnswer} = answersObject
-  console.log(answers, rightAnswer)
   const section = renderElement({
     tagHTML: 'section',
     className: 'answers',
@@ -35,9 +35,12 @@ async render(answersPromise) {
       this.humanAnswers.incorrect++
     }
     const answers = await new QuestionGenerator().returnAnswersObject(mode)
+    const peopleImg = new PeopleImg()
     this.computerChoose(rightAnswer, answersArray)
     setTimeout(() => {
       e.target.parentNode.remove()
+      document.querySelector('.mode__image').remove()
+      peopleImg.render(answers)
       this.render(answers)
     }, 1000)
     console.dir(this.computerAnswers, this.humanAnswers)

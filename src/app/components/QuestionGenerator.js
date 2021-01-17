@@ -72,7 +72,7 @@ class QuestionGenerator {
     const answers = this.getCorrectAnswer(mode)
     const fetchedAnswers = await this.fetchFourAnswers(mode, answers.randomAnswerIds)
     const answersObject = {
-      "image": `../../../static/assets/img/modes/${mode}/${answers.correctAnswerId}`,
+      "image": `/static/assets/img/modes/${mode}/${answers.correctAnswerId}.jpg`,
       "answers": fetchedAnswers,
       "rightAnswer": fetchedAnswers[answers.correctAnswerIndex],
       rightAnswerId: answers.correctAnswerId,
