@@ -25,13 +25,6 @@ class UsersRanking {
       innerText: 'Mode Ranking',
       parentElement: title,
     });
-
-    // const rankingTitle = renderElement({
-    //   tagHTML: 'h2',
-    //   className: 'ranking__title-container',
-    //   parentElement: rankingSection,
-    //   innerText: 'Mode Ranking'
-    // })
     
     const rankingProperties = ['Place', 'Player', 'Answered']
     rankingProperties.forEach(property => {
