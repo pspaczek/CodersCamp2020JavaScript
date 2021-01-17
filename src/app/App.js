@@ -1,5 +1,4 @@
 
-export const App = ({ options }) => {
   
 import GameModeName from './components/GameModeName';
 import UsersRanking from './components/UsersRanking';
@@ -15,10 +14,10 @@ export const App = ({options}) => {
   new GameModeName();
   new ModeRules().renderRules();
   new PeopleImg().render();
+  new Button().render();
   new UsersRanking().render([
     { name: 'dad', score: '10/20' },
     { name: 'dad', score: '10/20' },
     { name: 'dad', score: '10/20' },
   ]);
-  new Button().render();
 };
