@@ -1,28 +1,37 @@
 .ranking {
+  margin-bottom: 2em;
   display: grid;
   grid-template-columns: 15% 2fr 1fr;
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas: 'title title title';
   justify-content: center;
-
   width: 1200px;
   height: 350px;
   padding: 0px 40px 20px 40px;
   border-radius: 16px;
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  &__title-container {
+  display: none;
+  &__title {
+    margin-left: 40px;
     grid-area: title;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0px;
-    font-size: 44px;
-    text-align: center;
-  }
-  &__title {
-    margin-left: 40px;
     font-weight: normal;
+    &--text {
+      padding: 0.5em;
+      font-size: 2.62em;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      text-align: center;
+    }
+    &--icon {
+      font-size: 1.5em;
+    }
   }
+
   &__position {
     font-size: 36px;
     &--bold {

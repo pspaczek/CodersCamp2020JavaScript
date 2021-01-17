@@ -6,12 +6,25 @@ class UsersRanking {
       tagHTML: 'section',
       className: 'ranking'
     })
-    const rankingTitle = renderElement({
-      tagHTML: 'h2',
-      className: 'ranking__title-container',
+
+    const title = renderElement({
+      tagHTML: 'div',
+      className: 'ranking__title',
       parentElement: rankingSection,
-      innerText: 'Mode Ranking'
-    })
+    });
+
+    renderElement({
+      tagHTML: 'i',
+      className: 'fas fa-poll ranking__title--icon',
+      parentElement: title,
+    });
+
+    renderElement({
+      tagHTML: 'h2',
+      className: 'ranking__title--text',
+      innerText: 'Mode Ranking',
+      parentElement: title,
+    });
     
     const rankingProperties = ['Place', 'Player', 'Answered']
     rankingProperties.forEach(property => {
