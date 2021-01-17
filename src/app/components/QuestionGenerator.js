@@ -1,4 +1,3 @@
-
 class QuestionGenerator {
   getPossibleModeIds(mode) {
     let possibleIds
@@ -79,6 +78,7 @@ class QuestionGenerator {
       rightAnswerId: answers.correctAnswerId,
       mode: mode
     }
+
     return answersObject
   }
 }
