@@ -1,4 +1,9 @@
+import renderElement from '../tools/renderElement'
+
 class QuestionGenerator {
+  constructor() {
+
+  }
   getPossibleModeIds(mode) {
     let possibleIds
     switch (mode) {
@@ -75,10 +80,9 @@ class QuestionGenerator {
       "image": `../../../static/assets/img/modes/${mode}/${answers.correctAnswerId}`,
       "answers": fetchedAnswers,
       "rightAnswer": fetchedAnswers[answers.correctAnswerIndex],
-      rightAnswerId: answers.correctAnswerId,
-      mode: mode
+      rightAnswerId: answers.correctAnswerId
     }
-
+    console.log(answersObject)
     return answersObject
   }
 }
