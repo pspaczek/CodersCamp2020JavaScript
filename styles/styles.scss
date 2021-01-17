@@ -4,16 +4,11 @@
 @import './components/MenuOptions';
 @import './components/GameModeName';
 @import './components/UsersRanking';
-@import './components/Answers';
-@import './components/ImageCard';
-@import './components/logo';
-@import './components/ModeRules';
-@import './components/Buttons';
-@import './components/LightsaberTimer';
+@import './components/ModalWithShadowOverlay';
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: url(../static/assets/ui/QuizBackground.png) no-repeat center /
+  background: url('../static/assets/ui/QuizBackground.png') no-repeat center /
     cover;
   height: 100vh;
   width: 100%;
