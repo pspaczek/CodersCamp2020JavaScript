@@ -8,7 +8,9 @@ import Answers from './components/Answers';
 
 export const App = ({options}) => {
   new MenuOptions().render()
-  new Answers().render(answersObject)
+  const mode = document.querySelector('.options__mode--active').dataset.mode;
+  const answersPromise = new QuestionGenerator().returnAnswersObject(mode)
+  new Answers().render(answersPromise)
   new GameModeName();
   new ModeRules().renderRules();
   new UsersRanking().render([
