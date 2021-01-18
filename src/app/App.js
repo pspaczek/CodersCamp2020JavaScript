@@ -9,7 +9,7 @@ import MenuOptions from './components/MenuOptions';
 import ButtonSection from './components/ButtonSection';
 import EventListeners from './components/EventListeners';
 import TextTimer from './components/TextTimer';
-import ModalContent from './components/EndGame';
+import ModalContent from './components/ModalContent';
 
 export const App = ({options}) => {
   new MenuOptions().render()
