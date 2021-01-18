@@ -8,15 +8,12 @@ import PeopleImg from './components/PeopleImg';
 import MenuOptions from './components/MenuOptions';
 import ButtonSection from './components/ButtonSection';
 import EventListeners from './components/EventListeners';
+import TextTimer from './components/TextTimer';
 
 export const App = ({options}) => {
   new MenuOptions().render()
   new GameModeName();
   new ModeRules().renderRules();
-  const mode = document.querySelector('.options__mode--active').dataset.mode;
-  const answersPromise = new QuestionGenerator().returnAnswersObject(mode)
-  new PeopleImg().render(answersPromise);
-  new Answers().render(answersPromise)
   new UsersRanking().render([
   { name: 'dad', score: '10/20' },
   { name: 'dad', score: '10/20' },
@@ -25,6 +22,20 @@ export const App = ({options}) => {
   new ButtonSection().render();
   new Button('Hall of Fame', 'button button__ranking button--white').render();
   new Button('Rules', 'button button__rules button--white').render();
-  new Button('play the game', 'button button--red').render();
+  const playGame = new Button('play the game', 'button button--red').render();
+  playGame.addEventListener('click', async () => {
+    document.querySelector('.mode__descriptions').style.display = 'none'
+    document.querySelector('.button--white').style.display = 'none'
+    document.querySelector('.options').style.display = 'none'
+    playGame.style.display = 'none'
+    const mode = document.querySelector('.options__mode--active').dataset.mode;
+    const answersPromise = await new QuestionGenerator().returnAnswersObject(mode)
+    new PeopleImg().render(answersPromise);
+    new Answers().render(answersPromise)
+
+    //odtad nie dziala
+    const timer = new TextTimer().render()
+    timer.initTimer()
+  })
   new EventListeners().addListeners();
 }

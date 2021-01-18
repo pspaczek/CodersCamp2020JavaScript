@@ -24,6 +24,7 @@ async render(answersPromise) {
       on: {click: (e) => this.checkIfCorrect(e, rightAnswer, answers)}
       })
     })
+    return section
   }
 
   async checkIfCorrect(e, rightAnswer, answersArray) {
@@ -46,7 +47,7 @@ async render(answersPromise) {
       document.querySelector('.mode__image').remove()
       peopleImg.render(answers)
       this.render(answers)
-    }, 1000)
+    }, 500)
     // console.dir(this.computerAnswers, this.humanAnswers)
   }
 

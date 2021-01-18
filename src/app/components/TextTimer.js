@@ -14,6 +14,7 @@ class TextTimer {
       className: 'text-timer__timeleft',
       parentElement: textTimer,
     })
+    return textTimer
   }
 
   initTimer() {
