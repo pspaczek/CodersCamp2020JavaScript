@@ -71,4 +71,7 @@ body {
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
+  @media (min-width: 1024px) {
+    min-width: 40em;
+  }
 }
