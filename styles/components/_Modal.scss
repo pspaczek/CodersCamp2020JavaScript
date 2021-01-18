@@ -1,3 +1,4 @@
+@import './ModalContent';
 .modal {
   width: 90%;
   z-index: 9999;
@@ -11,6 +12,7 @@
   border-radius: 5px;
   box-shadow: 0px 0px 12px 6px rgba(141, 0, 0, 0.85);
   padding: 1.5rem;
+  display: block;
 }
 .overlay {
   background-color: black;
@@ -21,4 +23,5 @@
   position: absolute;
   left: 0;
   top: 0;
+  display: block;
 }
