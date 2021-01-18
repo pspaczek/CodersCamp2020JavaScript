@@ -1,28 +1,41 @@
 .options {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin-top: 2em;
-  width: 75em;
-  height: 9em;
+  padding: 1em 0;
+  width: 100%;
   border-radius: 16px;
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    height: 8em;
+  }
+
+  @media (min-width: 1024px) {
+    height: 9em;
+  }
   &__mode {
     padding-bottom: 10px;
-    font-size: 42px;
+    margin-bottom: 0.3em;
+    font-size: 2.5em;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
+    @media (min-width: 768px) {
+      font-size: 2.75em;
+    }
     &--active {
       color: rgba(0, 0, 0, 1);
       &::after {
         content: '';
         display: block;
         height: 10px;
-        margin-bottom: -20px;
-        margin-top: 10px;
+        margin-bottom: -12px;
         border-radius: 4px;
         background-color: rgba(255, 0, 0, 0.5);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
