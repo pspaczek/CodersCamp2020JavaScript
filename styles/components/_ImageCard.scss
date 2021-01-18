@@ -1,5 +1,7 @@
 .mode {
-  &__image {
+  &__image,
+  &__image--static {
+    display: block;
     grid-area: image;
     width: 15em;
     height: 20em;
