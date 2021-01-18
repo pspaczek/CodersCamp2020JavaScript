@@ -7,7 +7,8 @@ import { doc } from 'prettier';
 
 class Answers {
   constructor() {
-    this.humanAnswersStorage = [];
+    this.humanAnswersStorage =
+      JSON.parse(localStorage.getItem('Answers')) || [];
     this.humanAnswers = { correct: 0, incorrect: 0 };
     this.computerAnswers = { correct: 0, incorrect: 0 };
     this.isChosen = false;
