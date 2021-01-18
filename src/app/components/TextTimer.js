@@ -3,10 +3,12 @@ import renderElement from '../tools/renderElement';
 class TextTimer {
   constructor() {};
 
-  render() {
+ render() {
+    const appContainer = document.querySelector('.app');
     const textTimer = renderElement({
       tagHTML: 'section', 
       className: 'text-timer',
+      parentElement: appContainer,
     });
 
     const timer = renderElement({
@@ -19,9 +21,12 @@ class TextTimer {
 
   initTimer() {
     const timer = document.querySelector('.text-timer__timeleft');
+    timer.textContent = '';
+
     const totalTime = 120;
     let timeleft = totalTime;
     if (timeleft > 0) {
+      timer.textContent = `Time left: 2m 00s`;
       const interval = setInterval(() => {
         timeleft--;
         let minutes = Math.floor(timeleft / 60);

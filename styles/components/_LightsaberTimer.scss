@@ -1,31 +1,47 @@
 .timer {
+  grid-area: lightsaber;
   display: flex;
   align-items: center;
   justify-items: center;
-  margin: 65px 86px 23px 72px;
+  width: 92.5em;
+  width: 90%;
+  margin: 65px 0 23px 0;
   &__lightsaberHandle {
-    width: 299px;
+    width: 18.68em;
   }
   &__lightsaberProgressBar {
     position: absolute;
-    margin-left: 280px;
-    width: 1480px;
-    max-width: 100%;
+    margin-left: 17.5rem;
     height: 26px;
+    max-width: 90%;
     background: #bcbcbc;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+    @media (min-width: 1024px) {
+      width: 92.5em;
+      max-width: 90%;
+    }
   }
   &__saber {
     position: absolute;
-    width: 1480px;
-    max-width: 100%;
-    height: 26px;
     margin-left: 280px;
+    width: 92.5em;
+    height: 26px;
+    max-width: 90%;
     background: #ffffff;
     box-shadow: 10px -5px 15px $red, 10px 5px 15px $red,
       inset 0px 5px 4px rgba(255, 0, 0, 0.25);
     border-radius: 8px;
     transition: all linear 1s;
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+    @media (min-width: 1024px) {
+      width: 92.5em;
+      max-width: 90%;
+    }
   }
 }
