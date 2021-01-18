@@ -11,16 +11,17 @@
 @import './components/Buttons';
 @import './components/LightsaberTimer';
 
-html,
-body {
-  height: 100%;
-  @media (max-width: 768px) {
-    height: auto;
+:root {
+  font-size: 12px;
+  @media (min-width: 1024px) {
+    font-size: 16px;
+  }
 }
 
- @media (max-width: 1024px) {
-      font-size: 12px;
- }
+html,
+body {
+  height: auto;
+  min-height: 100%;
 }
 
 body {
@@ -28,11 +29,7 @@ body {
   background-image: url(../static/assets/ui/QuizBackground.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  
-  @media (max-width: 1024px) {
   background-size: auto 100%;
-  }
 }
 
 .app {
