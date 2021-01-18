@@ -1,5 +1,9 @@
 .logo {
+  width: 30em;
   grid-area: logo;
   display: flex;
   cursor: pointer;
+  @media (min-width: 1024px) {
+    width: 26em;
+  }
 }
