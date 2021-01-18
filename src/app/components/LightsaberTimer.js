@@ -4,9 +4,12 @@ class LightsaberTimer {
   constructor() {};
 
   render() {
+    const appContainer = document.querySelector('.app');
+
     const lightsaberTimer = renderElement({
       tagHTML: 'section', 
       className: 'timer',
+      parentElement: appContainer,
     })
 
     const lightsaberHandle = renderElement({

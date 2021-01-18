@@ -8,7 +8,6 @@ import PeopleImg from './components/PeopleImg';
 import MenuOptions from './components/MenuOptions';
 import ButtonSection from './components/ButtonSection';
 import EventListeners from './components/EventListeners';
-import TextTimer from './components/TextTimer';
 
 export const App = ({ options }) => {
   new MenuOptions().render();
@@ -36,10 +35,7 @@ export const App = ({ options }) => {
     );
     new PeopleImg().render(answersPromise);
     new Answers().render(answersPromise);
-
-    //odtad nie dziala
-    const timer = new TextTimer().render();
-    timer.initTimer();
+    new Answers().renderTimers();
   });
   new EventListeners().addListeners();
 };

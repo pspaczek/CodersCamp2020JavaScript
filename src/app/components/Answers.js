@@ -1,6 +1,8 @@
 import renderElement from '../tools/renderElement'
 import QuestionGenerator from './QuestionGenerator';
 import PeopleImg from './PeopleImg'
+import TextTimer from './TextTimer';
+import LightsaberTimer from './LightsaberTimer';
 
 class Answers {
   constructor() {
@@ -24,8 +26,18 @@ async render(answersPromise) {
       on: {click: (e) => this.checkIfCorrect(e, rightAnswer, answers)}
       })
     })
+
     return section
   }
+
+  async renderTimers() {
+    const lightsaberTimer = await new LightsaberTimer();
+    const textTimer = await new TextTimer();
+    lightsaberTimer.render();
+    textTimer.render();
+    lightsaberTimer.initTimer();
+    textTimer.initTimer();
+  }  
 
   async checkIfCorrect(e, rightAnswer, answersArray) {
     const mode = document.querySelector('.options__mode--active').dataset.mode;

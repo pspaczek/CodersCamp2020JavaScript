@@ -10,13 +10,14 @@
 @import './components/ModeRules';
 @import './components/Buttons';
 @import './components/LightsaberTimer';
+@import './components/TextTimer';
 
 html,
 body {
   height: auto;
- @media (min-width: 1024px) {
+  @media (min-width: 1024px) {
     height: 100%;
- }
+  }
 }
 
 body {
@@ -25,9 +26,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
+
   @media (max-width: 1024px) {
-  background-size: auto 100%;
+    background-size: auto 100%;
   }
 }
 
@@ -41,7 +42,9 @@ body {
     'content'
     'content'
     'content'
-    'content';
+    'content'
+    'lightsaber'
+    'timer';
   align-items: center;
   justify-content: center;
   justify-items: center;
@@ -53,7 +56,9 @@ body {
       'logo image'
       'content content'
       'content content'
-      'content content';
+      'content content'
+      'lightsaber lightsaber'
+      'timer timer';
   }
 
   @media (min-width: 1024px) {
@@ -62,7 +67,9 @@ body {
     grid-template-areas:
       'logo content'
       'image content'
-      'image content';
+      'image content'
+      'lightsaber lightsaber'
+      'timer timer';
   }
 }
 
