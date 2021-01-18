@@ -26,7 +26,7 @@ export const App = ({options}) => {
   playGame.addEventListener('click', async () => {
     document.querySelector('.mode__descriptions').style.display = 'none'
     document.querySelector('.button--white').style.display = 'none'
-    document.querySelector('.options').style.display = 'none'
+    //document.querySelector('.options').style.display = 'none'
     playGame.style.display = 'none'
     const mode = document.querySelector('.options__mode--active').dataset.mode;
     const answersPromise = await new QuestionGenerator().returnAnswersObject(mode)
