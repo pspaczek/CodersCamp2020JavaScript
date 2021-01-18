@@ -6,6 +6,7 @@ class Answers {
   constructor() {
     this.humanAnswers = {correct: 0, incorrect: 0}
     this.computerAnswers = {correct: 0, incorrect: 0}
+    this.isChosen = false;
   }
 async render(answersPromise) {
   const answersObject = await answersPromise
@@ -27,6 +28,7 @@ async render(answersPromise) {
 
   async checkIfCorrect(e, rightAnswer, answersArray) {
     const mode = document.querySelector('.options__mode--active').dataset.mode;
+    if (this.isChosen) return
     if (e.target.innerText === rightAnswer) {
       e.target.classList.add('answers__answer--correct')
       this.humanAnswers.correct++
@@ -34,16 +36,18 @@ async render(answersPromise) {
       e.target.classList.add('answers__answer--incorrect')
       this.humanAnswers.incorrect++
     }
+    this.isChosen = true
     const answers = await new QuestionGenerator().returnAnswersObject(mode)
     const peopleImg = new PeopleImg()
     this.computerChoose(rightAnswer, answersArray)
     setTimeout(() => {
+      this.isChosen = false
       e.target.parentNode.remove()
       document.querySelector('.mode__image').remove()
       peopleImg.render(answers)
       this.render(answers)
     }, 1000)
-    console.dir(this.computerAnswers, this.humanAnswers)
+    // console.dir(this.computerAnswers, this.humanAnswers)
   }
 
   computerChoose(rightAnswer, answers) {
