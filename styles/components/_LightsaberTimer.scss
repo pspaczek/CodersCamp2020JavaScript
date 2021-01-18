@@ -1,4 +1,5 @@
 .timer {
+  position: relative;
   grid-area: lightsaber;
   display: flex;
   align-items: center;
@@ -7,41 +8,73 @@
   width: 90%;
   margin: 65px 0 23px 0;
   &__lightsaberHandle {
+    position: absolute;
     width: 18.68em;
+    @media (min-width: 320px) {
+      max-width: 50%;
+    }
+    @media (min-width: 400px) {
+      max-width: 100%;
+    }
   }
   &__lightsaberProgressBar {
     position: absolute;
     margin-left: 17.5rem;
-    height: 26px;
-    max-width: 90%;
+    width: 92.5em;
+    max-width: 60%;
+    height: 1.62rem;
     background: #bcbcbc;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    @media (min-width: 320px) {
+      margin-left: 13em;
+      max-width: 50%;
+    }
+    @media (min-width: 400px) {
+      margin-left: 17.5em;
+    }
+    @media (min-width: 564px) {
+      width: 60%;
+      max-width: 65%;
+    }
     @media (min-width: 768px) {
-      width: 70%;
+      width: 65%;
     }
     @media (min-width: 1024px) {
-      width: 92.5em;
-      max-width: 90%;
+      width: 80%;
+      max-width: 75%;
     }
   }
   &__saber {
     position: absolute;
-    margin-left: 280px;
+    margin-left: 17.5rem;
     width: 92.5em;
-    height: 26px;
-    max-width: 90%;
+    max-width: 60%;
+    height: 1.62rem;
     background: #ffffff;
     box-shadow: 10px -5px 15px $red, 10px 5px 15px $red,
       inset 0px 5px 4px rgba(255, 0, 0, 0.25);
     border-radius: 8px;
     transition: all linear 1s;
+    @media (min-width: 320px) {
+      margin-left: 13em;
+      max-width: 50%;
+    }
+
+    @media (min-width: 400px) {
+      margin-left: 17.5em;
+    }
+    @media (min-width: 564px) {
+      width: 60%;
+      max-width: 65%;
+    }
     @media (min-width: 768px) {
-      width: 70%;
+      width: 65%;
+      max-width: 70%;
     }
     @media (min-width: 1024px) {
-      width: 92.5em;
-      max-width: 90%;
+      width: 80%;
+      max-width: 80%;
     }
   }
 }
