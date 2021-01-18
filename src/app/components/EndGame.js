@@ -9,14 +9,15 @@ class ModalContent {
     const wrapper = renderElement({
       tagHTML: 'div',
       className: 'modal',
+      //eventListener?
     });
-    const endGameHeading = renderElement({
+    renderElement({
       tagHTML: 'h2',
       className: 'modal__heading',
       innerText: 'GAME OVER',
       parentElement: wrapper,
     });
-    const endGameHeadingSmall = renderElement({
+    renderElement({
       tagHTML: 'span',
       className: 'modal__text',
       innerText: `The force is strong in you young Padawan! 
