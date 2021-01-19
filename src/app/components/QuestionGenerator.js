@@ -44,7 +44,7 @@ class QuestionGenerator {
   }
 
   async fetchAnswer(mode, answerId) {
-    const url = `https://swapi.dev/api/${mode}/${answerId}`
+    const url = `https://swapi.dev/api/${mode}/${answerId}/`
     const response = await fetch(url)
     const SWObject = await response.json()
     return SWObject.name

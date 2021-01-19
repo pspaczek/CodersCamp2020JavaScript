@@ -25,7 +25,7 @@ class PeopleImg {
       className: 'mode__image mode__image--static',
       parentElement: app,
     });
-    imageCard.style.backgroundImage = `url(https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/img/modes/people/${nr}.jpg)`;
+    imageCard.style.backgroundImage = `url("https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/img/modes/people/${nr}.jpg")`;
   }
 }
 
