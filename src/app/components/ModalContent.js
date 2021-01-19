@@ -5,14 +5,17 @@ class ModalContent {
   constructor() {
     this.humanAnswers = JSON.parse(localStorage.getItem('humAns')) || [];
     this.computerAnswers = JSON.parse(localStorage.getItem('comAns')) || [];
+    this.score = JSON.parse(localStorage.getItem('score')) || {};
   }
   render() {
     const app = document.querySelector('.app');
+    const correct = this.score.correct;
+    const incorrect = this.score.incorrect;
+    console.log(correct);
     const wrapper = renderElement({
       tagHTML: 'div',
       className: 'modal',
       parentElement: app,
-      //eventListener?
     });
     renderElement({
       tagHTML: 'h2',
@@ -24,8 +27,8 @@ class ModalContent {
       tagHTML: 'span',
       className: 'modal__text',
       innerText: `The force is strong in you young Padawan!
-      During 1 minute you have answered ${``}
-     and computer guessed ${``}`,
+      During 2 minutes you have answered ${correct}
+     from ${correct + incorrect} questions`,
       parentElement: wrapper,
     });
     const results = renderElement({
@@ -77,18 +80,26 @@ class ModalContent {
       parentElement: wrapper,
       attr: { src: 'https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/ui/MasterYodaLeft.png' },
     });
-    const input = renderElement({
+    renderElement({
       tagHTML: 'input',
       className: 'modal__input',
       parentElement: wrapper,
-      attr: { type: 'text' },
+      attr: {
+        type: 'text',
+        placeholder: 'username',
+        id: 'username',
+        required: true,
+      },
     });
     renderElement({
-      tagHTML: 'button',
+      tagHTML: 'input',
       className: 'button button--red modal__button',
-      innerText: `May the force be with you`,
       parentElement: wrapper,
-      attr: { type: 'submit' },
+      attr: {
+        type: 'submit',
+        id: 'username',
+        value: `May the force be with you`,
+      },
     });
 
     const modalBtn = document.querySelector('.modal__button');
