@@ -8,7 +8,6 @@ import PeopleImg from './components/PeopleImg';
 import MenuOptions from './components/MenuOptions';
 import ButtonSection from './components/ButtonSection';
 import EventListeners from './components/EventListeners';
-import ModalContent from './components/ModalContent';
 
 export const App = ({ options }) => {
   new MenuOptions().render();
@@ -23,7 +22,6 @@ export const App = ({ options }) => {
   new ButtonSection().render();
   new Button('Hall of Fame', 'button button__ranking button--white').render();
   new Button('Rules', 'button button__rules button--white').render();
-  new ModalContent().render();
   const playGame = new Button('play the game', 'button button--red').render();
   playGame.addEventListener('click', async () => {
     document.querySelector('.mode__descriptions').style.display = 'none';
@@ -40,5 +38,4 @@ export const App = ({ options }) => {
     new Answers().renderTimers();
   });
   new EventListeners().addListeners();
-  
 };

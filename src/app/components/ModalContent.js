@@ -82,8 +82,10 @@ class ModalContent {
     modalBtn.addEventListener('click', () => {
       localStorage.removeItem('humAns');
       localStorage.removeItem('comAns');
+      location.href = '../../../index.html';
       wrapper.style.display = 'none';
     });
+    wrapper.style.display = 'none';
   }
 }
 export default ModalContent;

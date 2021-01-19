@@ -4,11 +4,11 @@ import GameModeName from './GameModeName';
 class ModeRules {
   description = {
     people:
-      'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed on the left.',
+      'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select who from Star Wars is showed.',
     vehicles:
-      'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed on the left.',
+      'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which vehicle from Star Wars is showed.',
     starships:
-      'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed on the left.',
+      'You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select which starship from Star Wars is showed.',
   };
   constructor() {
     this.descriptionMode = this.description.people;
