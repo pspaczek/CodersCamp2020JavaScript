@@ -53,7 +53,6 @@ class Answers {
       this.humanAnswers.correct++;
       this.humanAnswerId.push(1);
       const newId = this.humanAnswerId.length;
-      const newHumanAnswer = this.humanAnswers;
       const newHumanAnswerText = e.target.innerText;
       const newRightAnswer = rightAnswer;
       const newImagePath = activePath;
@@ -62,16 +61,15 @@ class Answers {
         newImagePath,
         newHumanAnswerText,
         newRightAnswer,
-        newHumanAnswer,
       };
       this.humanAnswersStorage.push(humAnsToStorage);
       localStorage.setItem('humAns', JSON.stringify(this.humanAnswersStorage));
+      localStorage.setItem('score', JSON.stringify(this.humanAnswers));
     } else {
       e.target.classList.add('answers__answer--incorrect');
       this.humanAnswers.incorrect++;
       this.humanAnswerId.push(1);
       const newId = this.humanAnswerId.length;
-      const newHumanAnswer = this.humanAnswers;
       const newHumanAnswerText = e.target.innerText;
       const newRightAnswer = rightAnswer;
       const newImagePath = activePath;
@@ -80,10 +78,10 @@ class Answers {
         newImagePath,
         newHumanAnswerText,
         newRightAnswer,
-        newHumanAnswer,
       };
       this.humanAnswersStorage.push(humAnsToStorage);
       localStorage.setItem('humAns', JSON.stringify(this.humanAnswersStorage));
+      localStorage.setItem('score', JSON.stringify(this.humanAnswers));
     }
     this.isChosen = true;
     const answers = await new QuestionGenerator().returnAnswersObject(mode);
