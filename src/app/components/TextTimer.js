@@ -38,7 +38,7 @@ class TextTimer {
           timer.textContent = `Time left: 0m 0s`;
           new ModalContent().render();
           const modal = document.querySelector('.modal');
-          modal.style.display = 'block';
+          modal.style.display = 'flex';
         }
       }, 1000);
     }

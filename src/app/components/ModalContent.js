@@ -29,7 +29,7 @@ class ModalContent {
       parentElement: wrapper,
     });
     const results = renderElement({
-      tagHTML: 'div',
+      tagHTML: 'section',
       className: 'modal__results',
       parentElement: wrapper,
     });
@@ -72,12 +72,25 @@ class ModalContent {
       }
     });
     renderElement({
+      tagHTML: 'img',
+      className: 'modal__yoda',
+      parentElement: wrapper,
+      attr: { src: '../../../static/assets/ui/MasterYodaLeft.png' },
+    });
+    const input = renderElement({
+      tagHTML: 'input',
+      className: 'modal__input',
+      parentElement: wrapper,
+      attr: { type: 'text' },
+    });
+    renderElement({
       tagHTML: 'button',
       className: 'button button--red modal__button',
       innerText: `May the force be with you`,
       parentElement: wrapper,
       attr: { type: 'submit' },
     });
+
     const modalBtn = document.querySelector('.modal__button');
     modalBtn.addEventListener('click', () => {
       localStorage.removeItem('humAns');
