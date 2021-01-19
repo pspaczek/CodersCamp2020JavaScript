@@ -16,7 +16,7 @@ class LightsaberTimer {
       tagHTML: 'img',
       className: 'timer__lightsaberHandle',
       parentElement: lightsaberTimer,
-      attr: { src: '../../../static/assets/ui/LightsaberHandle.png' },
+      attr: { src: 'https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/ui/LightsaberHandle.png' },
     });
 
     const lightsaberProgressBar = renderElement({

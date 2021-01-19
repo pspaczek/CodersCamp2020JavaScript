@@ -67,12 +67,12 @@ class QuestionGenerator {
     const correctAnswerId = randomAnswerIds[randomIndex]
     return {correctAnswerId, correctAnswerIndex : randomIndex, randomAnswerIds}
   }
-  
+
   async returnAnswersObject(mode) {
     const answers = this.getCorrectAnswer(mode)
     const fetchedAnswers = await this.fetchFourAnswers(mode, answers.randomAnswerIds)
     const answersObject = {
-      "image": `/static/assets/img/modes/${mode}/${answers.correctAnswerId}.jpg`,
+      "image": `https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/img/modes/${mode}/${answers.correctAnswerId}.jpg`,
       "answers": fetchedAnswers,
       "rightAnswer": fetchedAnswers[answers.correctAnswerIndex],
       rightAnswerId: answers.correctAnswerId,

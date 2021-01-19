@@ -9,7 +9,7 @@ class PeopleImg {
     const id = answersObject.rightAnswerId;
     const mode = document.querySelector('.options__mode--active').dataset.mode;
     const app = document.querySelector('.app');
-    this.activePath = `/static/assets/img/modes/${mode}/${id}.jpg`;
+    this.activePath = `https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/img/modes/${mode}/${id}.jpg`;
     const imageCard = renderElement({
       tagHTML: 'div',
       className: 'mode__image mode__image--active',
@@ -25,7 +25,7 @@ class PeopleImg {
       className: 'mode__image mode__image--static',
       parentElement: app,
     });
-    imageCard.style.backgroundImage = `url(/static/assets/img/modes/people/${nr}.jpg)`;
+    imageCard.style.backgroundImage = `url(https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/img/modes/people/${nr}.jpg)`;
   }
 }
 

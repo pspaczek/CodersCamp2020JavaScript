@@ -75,7 +75,7 @@ class ModalContent {
       tagHTML: 'img',
       className: 'modal__yoda',
       parentElement: wrapper,
-      attr: { src: '../../../static/assets/ui/MasterYodaLeft.png' },
+      attr: { src: 'https://raw.githubusercontent.com/pspaczek/CodersCamp2020JavaScript/main/static/assets/ui/MasterYodaLeft.png' },
     });
     const input = renderElement({
       tagHTML: 'input',
@@ -95,7 +95,7 @@ class ModalContent {
     modalBtn.addEventListener('click', () => {
       localStorage.removeItem('humAns');
       localStorage.removeItem('comAns');
-      location.href = '../../../index.html';
+      location.href = '/';
       wrapper.style.display = 'none';
     });
     wrapper.style.display = 'none';
