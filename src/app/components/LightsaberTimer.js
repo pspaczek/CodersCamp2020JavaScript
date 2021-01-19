@@ -1,35 +1,35 @@
 import renderElement from '../tools/renderElement';
 
 class LightsaberTimer {
-  constructor() {};
+  constructor() {}
 
   render() {
     const appContainer = document.querySelector('.app');
 
     const lightsaberTimer = renderElement({
-      tagHTML: 'section', 
+      tagHTML: 'section',
       className: 'timer',
       parentElement: appContainer,
-    })
+    });
 
     const lightsaberHandle = renderElement({
       tagHTML: 'img',
       className: 'timer__lightsaberHandle',
       parentElement: lightsaberTimer,
-      attr: {'src' : '../../../static/assets/ui/LightsaberHandle.png'}
-    })
+      attr: { src: '../../../static/assets/ui/LightsaberHandle.png' },
+    });
 
     const lightsaberProgressBar = renderElement({
       tagHTML: 'div',
       className: 'timer__lightsaberProgressBar',
       parentElement: lightsaberTimer,
-    })
+    });
 
     const saber = renderElement({
       tagHTML: 'div',
       className: 'timer__saber',
       parentElement: lightsaberTimer,
-    })
+    });
 
     return lightsaberTimer;
   }
@@ -42,9 +42,10 @@ class LightsaberTimer {
     const totalTime = 120;
     let timeleft = totalTime;
     if (timeleft > 0) {
-      const interval = setInterval(() => {   
+      const interval = setInterval(() => {
         timeleft--;
-        saber.style.width = Math.round(timeleft * saberInitialWidth / totalTime) + 'px';
+        saber.style.width =
+          Math.round((timeleft * saberInitialWidth) / totalTime) + 'px';
 
         if (timeleft <= 0) {
           clearInterval(interval);

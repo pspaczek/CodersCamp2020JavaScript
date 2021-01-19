@@ -12,7 +12,7 @@ class PeopleImg {
     this.activePath = `/static/assets/img/modes/${mode}/${id}.jpg`;
     const imageCard = renderElement({
       tagHTML: 'div',
-      className: 'mode__image',
+      className: 'mode__image mode__image--active',
       parentElement: app,
     });
     imageCard.style.backgroundImage = `url(${this.activePath})`;
