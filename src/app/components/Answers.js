@@ -3,19 +3,16 @@ import QuestionGenerator from './QuestionGenerator';
 import PeopleImg from './PeopleImg';
 import TextTimer from './TextTimer';
 import LightsaberTimer from './LightsaberTimer';
-import { doc } from 'prettier';
 
 class Answers {
   constructor() {
-    this.humanAnswersStorage =
-      JSON.parse(localStorage.getItem('Answers')) || [];
+    this.humanAnswersStorage = JSON.parse(localStorage.getItem('humAns')) || [];
+    this.computerAnswersStorage =
+      JSON.parse(localStorage.getItem('comAns')) || [];
     this.humanAnswers = { correct: 0, incorrect: 0 };
     this.computerAnswers = { correct: 0, incorrect: 0 };
     this.isChosen = false;
     this.humanAnswerId = [];
-    this.activePath = document.querySelector(
-      '.mode__image',
-    ).style.backgroundImage;
   }
   async render(answersPromise) {
     const answersObject = await answersPromise;
@@ -48,6 +45,8 @@ class Answers {
 
   async checkIfCorrect(e, rightAnswer, answersArray) {
     const mode = document.querySelector('.options__mode--active').dataset.mode;
+    const activePath = document.querySelector('.mode__image--active').style
+      .backgroundImage;
     if (this.isChosen) return;
     if (e.target.innerText === rightAnswer) {
       e.target.classList.add('answers__answer--correct');
@@ -57,16 +56,16 @@ class Answers {
       const newHumanAnswer = this.humanAnswers;
       const newHumanAnswerText = e.target.innerText;
       const newRightAnswer = rightAnswer;
-      const newImagePath = this.activePath;
-      const answerToStorage = {
+      const newImagePath = activePath;
+      const humAnsToStorage = {
         newId,
         newImagePath,
         newHumanAnswerText,
         newRightAnswer,
         newHumanAnswer,
       };
-      this.humanAnswersStorage.push(answerToStorage);
-      localStorage.setItem('Answers', JSON.stringify(this.humanAnswersStorage));
+      this.humanAnswersStorage.push(humAnsToStorage);
+      localStorage.setItem('humAns', JSON.stringify(this.humanAnswersStorage));
     } else {
       e.target.classList.add('answers__answer--incorrect');
       this.humanAnswers.incorrect++;
@@ -75,16 +74,16 @@ class Answers {
       const newHumanAnswer = this.humanAnswers;
       const newHumanAnswerText = e.target.innerText;
       const newRightAnswer = rightAnswer;
-      const newImagePath = this.activePath;
-      const answerToStorage = {
+      const newImagePath = activePath;
+      const humAnsToStorage = {
         newId,
         newImagePath,
         newHumanAnswerText,
         newRightAnswer,
         newHumanAnswer,
       };
-      this.humanAnswersStorage.push(answerToStorage);
-      localStorage.setItem('Answers', JSON.stringify(this.humanAnswersStorage));
+      this.humanAnswersStorage.push(humAnsToStorage);
+      localStorage.setItem('humAns', JSON.stringify(this.humanAnswersStorage));
     }
     this.isChosen = true;
     const answers = await new QuestionGenerator().returnAnswersObject(mode);
@@ -96,16 +95,39 @@ class Answers {
       document.querySelector('.mode__image').remove();
       peopleImg.render(answers);
       this.render(answers);
-    }, 500);
+    }, 200);
     // console.log(this.computerAnswers, this.humanAnswers);
   }
 
   computerChoose(rightAnswer, answers) {
     const random = Math.floor(Math.random() * answers.length);
-    if (answers[random] === rightAnswer) {
+    const compAnswer = answers[random];
+    if (compAnswer === rightAnswer) {
       this.computerAnswers.correct++;
+      const newId = this.humanAnswerId.length;
+      const newComputerAnswer = compAnswer;
+      const comAnsToStorage = {
+        newId,
+        newComputerAnswer,
+      };
+      this.computerAnswersStorage.push(comAnsToStorage);
+      localStorage.setItem(
+        'comAns',
+        JSON.stringify(this.computerAnswersStorage),
+      );
     } else {
       this.computerAnswers.incorrect++;
+      const newId = this.humanAnswerId.length;
+      const newComputerAnswer = compAnswer;
+      const comAnsToStorage = {
+        newId,
+        newComputerAnswer,
+      };
+      this.computerAnswersStorage.push(comAnsToStorage);
+      localStorage.setItem(
+        'comAns',
+        JSON.stringify(this.computerAnswersStorage),
+      );
     }
   }
 }
